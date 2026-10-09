@@ -30,7 +30,7 @@
       asilAcik = !asilAcik;
       yorum.querySelectorAll('.cevrilen').forEach(function (p) {
         p.textContent = asilAcik ? p.dataset.asil : p.dataset.ceviri;
-        p.lang = asilAcik ? 'tr' : sayfaDili;
+        p.lang = asilAcik ? (p.dataset.asilDil || 'tr') : sayfaDili;
       });
       dugme.textContent = asilAcik ? metin.cevirisini_goster : metin.aslini_goster;
     });
