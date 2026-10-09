@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casebook</title>
+<meta name="description" content="A business problem every day, and how it was solved.">
+<link rel="stylesheet" href="stil.css">
+<script>
+(function () {
+  var diller = ["tr", "en", "de", "es", "fr"], secilen = null;
+  try { secilen = localStorage.getItem('casebook:dil'); } catch (hata) {}
+  if (diller.indexOf(secilen) === -1) {
+    secilen = 'en';
+    var tercih = navigator.languages || [navigator.language || 'en'];
+    for (var i = 0; i < tercih.length; i++) {
+      var kod = String(tercih[i]).slice(0, 2).toLowerCase();
+      if (diller.indexOf(kod) !== -1) { secilen = kod; break; }
+    }
+  }
+  location.replace(secilen + '/v2/index.html');
+})();
+</script>
+</head>
+<body>
+<main class="kap"><section class="giris"><h1>Casebook<span style="color:#c2255c">.</span></h1>
+<ul><li><a href="tr/v2/index.html">Türkçe</a></li><li><a href="en/v2/index.html">English</a></li><li><a href="de/v2/index.html">Deutsch</a></li><li><a href="es/v2/index.html">Español</a></li><li><a href="fr/v2/index.html">Français</a></li></ul></section></main>
+</body>
+</html>
